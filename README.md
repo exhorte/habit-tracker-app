@@ -1,50 +1,91 @@
-# Welcome to your Expo app 👋
+# 🎯 HabitTracker
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A beautiful, premium React Native application built with **Expo (v54)** and **Appwrite** for tracking daily habits, maintaining consistency, and visualizing streaks.
 
-## Get started
+---
 
-1. Install dependencies
+## 📱 Features
 
-   ```bash
-   npm install
-   ```
+- **🔒 Premium Authentication**: Custom SignIn & SignUp screens with inputs validation and clean loading states.
+- **✨ Daily Habit List**: View today's habits with a dynamic circular daily progress bar tracker.
+- **✔️ Gestures Integration**: Swiping left to delete, and swiping right to complete daily habits with smooth animations.
+- **⚡ Optimistic UI Updates**: State updates instantly on the client side when executing actions, providing zero-latency feedback before saving changes back to the database.
+- **🏆 Streaks Leaderboard**: Tracks active habit streaks, best streaks, and lifetime completions, ranking habits in an interactive top podium layout.
+- **📅 Interactive Forms**: Simple form to add new habits with controlled text fields, error notifications, and visual cards for choosing frequencies (daily, weekly, monthly).
+- **🔄 Realtime Synchronization**: Appwrite Realtime WebSocket events synchronize habits and completions across multiple devices instantly.
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 📸 Screenshots
 
-In the output, you'll find options to open the app in a
+Here is a preview of the modernized user interface:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Authentication
+| Sign In | Sign Up |
+| :---: | :---: |
+| ![Sign In](./screenshot/signin.jpg) | ![Sign Up](./screenshot/signup.jpg) |
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Daily Dashboard & Interactions
+| Today's Habits | Swipe to Complete | Swipe to Delete |
+| :---: | :---: | :---: |
+| ![Today's Habits](./screenshot/list-habits.jpg) | ![Swipe to Complete](./screenshot/completed-option-view.jpg) | ![Swipe to Delete](./screenshot/delete-option-view.jpg) |
 
-## Get a fresh project
+### Statistics & Creation
+| Habit Streaks | Add New Habit |
+| :---: | :---: |
+| ![Habit Streaks](./screenshot/streaks.jpg) | ![Add Habit](./screenshot/add%20habit.jpg) |
 
-When you're ready, run:
+---
 
+## 🛠️ Tech Stack & Key Libraries
+
+This project uses the following major packages:
+
+- **Core**: [React Native](https://reactnative.dev/) & [Expo (v54)](https://expo.dev/)
+- **Backend & Sync**: [react-native-appwrite](https://github.com/appwrite/sdk-for-react-native) (Database, Authentication, Realtime WebSockets)
+- **UI & Components**: [react-native-paper](https://reactnativepaper.com/) (Material Design UI components)
+- **Gestures**: [react-native-gesture-handler](https://docs.swmansion.com/react-native-gesture-handler/) (Swipeable list rows)
+- **Routing**: [expo-router](https://docs.expo.dev/router/introduction/) (File-based navigation)
+- **Icons**: `@expo/vector-icons` (MaterialCommunityIcons integration)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Prerequisites
+Ensure you have [Node.js](https://nodejs.org/) installed and a simulator or [Expo Go](https://expo.dev/go) app ready on your mobile device.
+
+### 2. Installation
+Clone this repository and install all dependencies:
 ```bash
-npm run reset-project
+git clone https://github.com/exhorte/habit-tracker-app.git
+cd habit-tracker-app
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 3. Environment Variables
+Create a `.env` file in the root folder of the project containing your Appwrite endpoint configuration details:
+```env
+EXPO_PUBLIC_APPWRITE_ENDPOINT="https://cloud.appwrite.io/v1"
+EXPO_PUBLIC_APPWRITE_PROJECT_ID="your_project_id"
+EXPO_PUBLIC_APPWRITE_DATABASE_ID="your_database_id"
+EXPO_PUBLIC_APPWRITE_HABITS_COLLECTION_ID="your_habits_collection_id"
+EXPO_PUBLIC_APPWRITE_COMPLETIONS_COLLECTION_ID="your_completions_collection_id"
+```
 
-## Learn more
+### 4. Running the Project
+Start the development server:
+```bash
+# Start expo development server
+npx expo start
 
-To learn more about developing your project with Expo, look at the following resources:
+# Run specifically on Web
+npm run web
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+# Run on Android
+npm run android
 
-## Join the community
+# Run on iOS
+npm run ios
+```
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
