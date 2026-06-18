@@ -1,91 +1,103 @@
-# 🎯 HabitTracker
+# 🌱 HabitTracker — Premium React Native App
 
-A beautiful, premium React Native application built with **Expo (v54)** and **Appwrite** for tracking daily habits, maintaining consistency, and visualizing streaks.
-
----
-
-## 📱 Features
-
-- **🔒 Premium Authentication**: Custom SignIn & SignUp screens with inputs validation and clean loading states.
-- **✨ Daily Habit List**: View today's habits with a dynamic circular daily progress bar tracker.
-- **✔️ Gestures Integration**: Swiping left to delete, and swiping right to complete daily habits with smooth animations.
-- **⚡ Optimistic UI Updates**: State updates instantly on the client side when executing actions, providing zero-latency feedback before saving changes back to the database.
-- **🏆 Streaks Leaderboard**: Tracks active habit streaks, best streaks, and lifetime completions, ranking habits in an interactive top podium layout.
-- **📅 Interactive Forms**: Simple form to add new habits with controlled text fields, error notifications, and visual cards for choosing frequencies (daily, weekly, monthly).
-- **🔄 Realtime Synchronization**: Appwrite Realtime WebSocket events synchronize habits and completions across multiple devices instantly.
+HabitTracker is a modern, premium, and cross-platform mobile application designed to help users build consistency and track their habits in real-time. Built on top of **React Native** and **Expo**, and powered by **Appwrite**, the app offers a fluid user experience, real-time synchronization, and local optimistic state updates for instant UI responses.
 
 ---
 
-## 📸 Screenshots
+## 📸 Screen Showcase
 
-Here is a preview of the modernized user interface:
+### Core Experience
 
-### Authentication
-| Sign In | Sign Up |
-| :---: | :---: |
-| ![Sign In](./screenshot/signin.jpg) | ![Sign Up](./screenshot/signup.jpg) |
+| 🔐 Welcome & Auth | ✨ Add New Habit | 📅 Today's Habits | 🏆 Habit Streaks & Leaderboard |
+| :---: | :---: | :---: | :---: |
+| <img src="./screenshot/signin.jpg" width="180" /> | <img src="./screenshot/add habit.jpg" width="180" /> | <img src="./screenshot/list-habits.jpg" width="180" /> | <img src="./screenshot/streaks.jpg" width="180" /> |
 
-### Daily Dashboard & Interactions
-| Today's Habits | Swipe to Complete | Swipe to Delete |
+### Gestures & Secondary Screens
+
+| 🗑️ Swipe to Delete | ✅ Swipe to Complete | 📝 Sign Up Screen |
 | :---: | :---: | :---: |
-| ![Today's Habits](./screenshot/list-habits.jpg) | ![Swipe to Complete](./screenshot/completed-option-view.jpg) | ![Swipe to Delete](./screenshot/delete-option-view.jpg) |
-
-### Statistics & Creation
-| Habit Streaks | Add New Habit |
-| :---: | :---: |
-| ![Habit Streaks](./screenshot/streaks.jpg) | ![Add Habit](./screenshot/add%20habit.jpg) |
+| <img src="./screenshot/delete-option-view.jpg" width="180" /> | <img src="./screenshot/completed-option-view.jpg" width="180" /> | <img src="./screenshot/signup.jpg" width="180" /> |
 
 ---
 
-## 🛠️ Tech Stack & Key Libraries
+## ✨ Key Features
 
-This project uses the following major packages:
+- **🎨 Premium Visual Aesthetics**: Tailored color palettes, custom cards with left accent borders, elegant layouts, and beautiful typography (Inter / Outfit style).
+- **⚡ Optimistic State Updates**: Creating, deleting, and marking habits as completed update the UI instantly, rolling back gracefully only if the background request fails.
+- **🔄 Real-time Synchronization**: Powered by Appwrite WebSockets, changes are synced across devices instantly.
+- **🏆 Streaks & Leaderboard**: Calculates current streaks, best streaks, and total completions with a podium style top leaderboard.
+- **📱 Fluid Swiping Gestures**: Built with React Native Gesture Handler for smooth native swiping motions to complete or delete habits.
+- **🔒 Secure Authentication**: Seamless Sign In / Sign Up flow with validation and clear user feedback.
 
-- **Core**: [React Native](https://reactnative.dev/) & [Expo (v54)](https://expo.dev/)
-- **Backend & Sync**: [react-native-appwrite](https://github.com/appwrite/sdk-for-react-native) (Database, Authentication, Realtime WebSockets)
-- **UI & Components**: [react-native-paper](https://reactnativepaper.com/) (Material Design UI components)
-- **Gestures**: [react-native-gesture-handler](https://docs.swmansion.com/react-native-gesture-handler/) (Swipeable list rows)
-- **Routing**: [expo-router](https://docs.expo.dev/router/introduction/) (File-based navigation)
-- **Icons**: `@expo/vector-icons` (MaterialCommunityIcons integration)
+---
+
+## 🛠️ Technical Stack & Dependencies
+
+- **Framework**: Expo v54.0.0
+- **Language**: TypeScript
+- **Database / Backend**: Appwrite Cloud
+- **UI Components**: React Native Paper
+- **Gestures**: React Native Gesture Handler & Reanimated
+
+To install the primary libraries used in this project, run the following commands:
+
+```bash
+# Install Appwrite SDK and Polyfill
+npx expo install react-native-appwrite react-native-url-polyfill
+
+# Install UI Component Library
+npx expo install react-native-paper
+
+# Install Gesture Handler
+npx expo install react-native-gesture-handler
+```
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Prerequisites
-Ensure you have [Node.js](https://nodejs.org/) installed and a simulator or [Expo Go](https://expo.dev/go) app ready on your mobile device.
-
-### 2. Installation
-Clone this repository and install all dependencies:
+### 1. Install Dependencies
 ```bash
-git clone https://github.com/exhorte/habit-tracker-app.git
-cd habit-tracker-app
 npm install
 ```
 
-### 3. Environment Variables
-Create a `.env` file in the root folder of the project containing your Appwrite endpoint configuration details:
+### 2. Configure Environment Variables
+Create a `.env` file in the root directory and configure your Appwrite project credentials:
 ```env
-EXPO_PUBLIC_APPWRITE_ENDPOINT="https://cloud.appwrite.io/v1"
-EXPO_PUBLIC_APPWRITE_PROJECT_ID="your_project_id"
-EXPO_PUBLIC_APPWRITE_DATABASE_ID="your_database_id"
-EXPO_PUBLIC_APPWRITE_HABITS_COLLECTION_ID="your_habits_collection_id"
-EXPO_PUBLIC_APPWRITE_COMPLETIONS_COLLECTION_ID="your_completions_collection_id"
+EXPO_PUBLIC_APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
+EXPO_PUBLIC_APPWRITE_PROJECT_ID=your_project_id
+EXPO_PUBLIC_APPWRITE_DATABASE_ID=your_database_id
+EXPO_PUBLIC_HABITS_COLLECTION_ID=your_habits_collection_id
+EXPO_PUBLIC_COMPLETIONS_COLLECTION_ID=your_completions_collection_id
 ```
 
-### 4. Running the Project
-Start the development server:
+### 3. Start the Development Server
 ```bash
-# Start expo development server
 npx expo start
-
-# Run specifically on Web
-npm run web
-
-# Run on Android
-npm run android
-
-# Run on iOS
-npm run ios
 ```
+From the CLI interface, you can open the project in:
+- **Android emulator** (`a`)
+- **iOS simulator** (`i`)
+- **Expo Go** on physical device
+- **Web browser** (`w`)
 
+---
+
+## 📁 Project Structure
+
+```
+├── app/                  # File-based routing (Expo Router)
+│   ├── (tabs)/           # Main tab bar routes
+│   │   ├── _layout.tsx   # Tabs configuration (colors, icons)
+│   │   ├── index.tsx     # Today's habits (progress, swiping, listing)
+│   │   ├── streaks.tsx   # Leaderboard & statistics
+│   │   └── add-habit.tsx # Custom add habit form
+│   ├── _layout.tsx       # Root layout & authentication guard routing
+│   └── auth.tsx          # Login & SignUp screen
+├── lib/                  # Appwrite services and global context
+│   ├── appwrite.ts       # SDK init & collections constants
+│   └── auth-context.tsx  # Authentication provider & user session hook
+├── types/                # TypeScript interfaces
+│   └── database.type.ts  # Habits and completions schema types
+└── screenshot/           # Screenshots folder for documentation
+```
